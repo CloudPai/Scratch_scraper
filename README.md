@@ -7,7 +7,6 @@ Scratch爬虫：获取scratch上某用户发布的所有作品的详细信息并
 * 步骤2：将json文件转换为csv文件和存有id的文件id.txt
 * 步骤3：根据id.txt下载所有sb2文件到名为变量username的文件夹中
 
-
 ## 用法
 在main.py中修改需要查询用户的用户名，执行main.py函数即可
 ## 输出

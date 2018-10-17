@@ -2,7 +2,6 @@ import csv
 import json
 import os
 
-
 def startSave(saveName):
     f = open('cacheFiles/saveJSON.json',"r",encoding="utf8")
     data = json.load(f)

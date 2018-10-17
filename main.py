@@ -12,7 +12,6 @@ username = "atomicmagicnumber"
 # 保存sb2文件时，文件名的前缀
 PrefixString='getUserFiles'
 
-
 '''
 工作流Workflow
 '''
