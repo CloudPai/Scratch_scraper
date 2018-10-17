@@ -1,6 +1,6 @@
 import csv
 import json
-
+import os
 
 
 
@@ -8,6 +8,11 @@ def startSave(saveName):
     f = open('saveJSON.json',"r",encoding="utf8")
     data = json.load(f)
     f.close()
+
+    path = 'csvFiles/'
+    folder = os.path.exists(path)
+    if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
+        os.makedirs(path)
     fcsv = csv.writer(open('csvFiles/'+saveName, "w", encoding="utf8"))
     # Write CSV Header, If you dont need that, remove this line
     fcsv.writerow(["No.","id","title","description","instructions","visibility","is_published","author_id","author_username","image","history_created","history_modified","history_shared","stats_views","stats_loves","stats_favorites","stats_comments","stats_remixes","remix_parent","remix_root"])
