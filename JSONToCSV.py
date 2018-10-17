@@ -5,10 +5,10 @@ import json
 
 
 def startSave(saveName):
-    f = open('1.json',"r",encoding="utf8")
+    f = open('saveJSON.json',"r",encoding="utf8")
     data = json.load(f)
     f.close()
-    fcsv = csv.writer(open(saveName, "w", encoding="utf8"))
+    fcsv = csv.writer(open('csvFiles/'+saveName, "w", encoding="utf8"))
     # Write CSV Header, If you dont need that, remove this line
     fcsv.writerow(["No.","id","title","description","instructions","visibility","is_published","author_id","author_username","image","history_created","history_modified","history_shared","stats_views","stats_loves","stats_favorites","stats_comments","stats_remixes","remix_parent","remix_root"])
     i = 1

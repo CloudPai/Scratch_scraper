@@ -28,6 +28,6 @@ def startDownload(username,rangeNum):
     # 将ltp处理结果保存到文本中
 
     # url="https://api.scratch.mit.edu/users/atomicmagicnumber/projects?limit =32&offset="+str(0*32)
-    f = open("1.json", "w", encoding="utf8")
+    f = open("saveJSON.json", "w", encoding="utf8")
     f.write(str1)  # 保存前，需要将jsonStr序列化为python相对的数据类型，去掉最后的换行符
     f.close()
