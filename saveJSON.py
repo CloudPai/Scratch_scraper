@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from urllib.parse import quote
 import requests
 import json
-
+import os
 # 获取json数据
 
 # fullurl="https://api.scratch.mit.edu/users/atomicmagicnumber/projects?limit =2&offset=0"
@@ -28,6 +28,11 @@ def startDownload(username,rangeNum):
     # 将ltp处理结果保存到文本中
 
     # url="https://api.scratch.mit.edu/users/atomicmagicnumber/projects?limit =32&offset="+str(0*32)
-    f = open("saveJSON.json", "w", encoding="utf8")
+    path = "cacheFiles"
+    folder = os.path.exists(path)
+    if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
+        os.makedirs(path)
+
+    f = open("cacheFiles/saveJSON.json", "w", encoding="utf8")
     f.write(str1)  # 保存前，需要将jsonStr序列化为python相对的数据类型，去掉最后的换行符
     f.close()
