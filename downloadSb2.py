@@ -5,7 +5,7 @@ import re
 import os
 
 
-def startDownload(folderName,PrefixString,project_id):
+def startDownload(folderName,project_id):
     print('downloading project: ' + str(project_id))
 
     # try:
@@ -34,7 +34,7 @@ def startDownload(folderName,PrefixString,project_id):
     #zipfile_name = title_data['title'] + '.sb2'
 
 
-    zipfile_name ='sb2Files/'+folderName+'/'+ PrefixString +'_'+str(project_id) + '.sb2'
+    zipfile_name ='sb2Files/'+folderName+'/'+ str(project_id) + '.sb2'
     print("zipfile_name",zipfile_name)
 
     path  = 'sb2Files/'+folderName+'/'
@@ -49,42 +49,3 @@ def startDownload(folderName,PrefixString,project_id):
     #downloadCostume(sb2, costumesToDownload, soundsToDownload)
 
     sb2.close()
-    project_id=''
-    # except Exception as e:
-    #    print('error with %s', str(e))
-''' 
-def downloadCostume(sb2, costumesToDownload, soundsToDownload):
-    complete, totalAssets = 0, len(costumesToDownload) + len(soundsToDownload)
-    for costume in costumesToDownload:
-        print('Loading asset ' + costume['costumeName'] + ' (' +
-              str(complete) + '/' + str(totalAssets) + ')')
-        resp = requests.get(
-            'https://cdn.assets.scratch.mit.edu/internalapi/asset/' +
-            costume['baseLayerMD5'] + '/get/')
-        ext = re.findall('\.[a-zA-Z0-9]+', costume['baseLayerMD5'])[0]
-        filename = str(costume['baseLayerID']) + ext
-        sb2.writestr(filename, resp.content)
-        complete += 1
-
-    for costume in soundsToDownload:
-        print('Loading asset ' + costume['soundName'] + ' (' +
-              str(complete) + '/' + str(totalAssets) + ')')
-        resp = requests.get(
-            'https://cdn.assets.scratch.mit.edu/internalapi/asset/' +
-            costume['md5'] + '/get/')
-        ext = re.findall('\.[a-zA-Z0-9]+', costume['md5'])[0]
-        filename = str(costume['soundID']) + ext
-        sb2.writestr(filename, resp.content)
-        complete += 1
-
-
-def processSoundAndCostumes(project, c, s):
-    if 'costumes' in project:
-        for data in project['costumes']:
-            data['baseLayerID'] = len(c)
-            c.append(data)
-    if 'sounds' in project:
-        for data in project['sounds']:
-            data['soundID'] = len(s)
-            s.append(data)
-''' 

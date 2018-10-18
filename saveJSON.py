@@ -11,7 +11,7 @@ import os
 # rawtext = urlopen(fullurl, timeout=15).read()
 # jsonStr = json.loads(rawtext.decode('utf8'))
 
-def startDownload(username,rangeNum):
+def startDownload(savename,username,rangeNum):
     str1 = "["
     for x in range(0, rangeNum):
         url = "https://api.scratch.mit.edu/users/"+username +"/projects?limit=32&offset="+ str(x * 32)
@@ -34,6 +34,6 @@ def startDownload(username,rangeNum):
     if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
         os.makedirs(path)
 
-    f = open("cacheFiles/saveJSON.json", "w", encoding="utf8")
+    f = open("cacheFiles/"+savename+".json", "w", encoding="utf8")
     f.write(str1)  # 保存前，需要将jsonStr序列化为python相对的数据类型，去掉最后的换行符
     f.close()
